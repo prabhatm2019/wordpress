@@ -1,0 +1,45 @@
+---
+# tasks file for wprole
+ - name: install apache2
+   apt: 
+     name: "{{ package }}"
+     state: present 
+     update_cache: true 
+ - name: install mysql packages
+   apt: 
+     #name: "{{ item }}"
+      name: ['mysql-server', 'mysql-client', 'php', 'libapache2-mod-php', 'php-mcrypt', 'php-mysql'] 
+      state: latest
+  # with_items: 
+   # - mysql-server
+    #- mysql-client
+    #- php 
+    #- libapache2-mod-php
+    #- php-mcrypt
+    #- php-mysql
+ - name: install unzip
+   apt: 
+     name: "{{ package1 }}" 
+     state: present 
+     update_cache: true
+# - name: my sql pass
+ #  shell: mysqladmin -u root password rootpassword
+# - name: copy mysql commands
+ #  copy:
+  #   src: "{{ file_path }}"
+   #  dest: "{{ dest_path }}"
+# - name: prootpass
+ #  shell: mysql -uroot -prootpassword < /tmp/mysqlcommands
+ - name: copy download wordpress
+   copy:
+     src: "{{ file1_path }}"
+     dest: "{{ dest1_path }}"
+# - name: latest unzip
+ #  shell: unzip /tmp/latest.zip -d /var/www/html
+ - name: copy sample file
+   template:
+     src: "{{ file2_path }}"
+     dest: "{{ dest2_path }}"
+     mode: 775 
+     owner: www-data
+   notify: service apache2

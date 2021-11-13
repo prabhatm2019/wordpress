@@ -1,0 +1,4 @@
+---
+# handlers file for wprole
+ - name: service apache2
+   service: name={{ package }} state=restarted

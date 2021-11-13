@@ -1,0 +1,13 @@
+---
+# vars file for wprole
+package: apache2
+package1: unzip
+file_path: mysqlcommands
+dest_path: /tmp/mysqlcommands
+file1_path: latest.zip
+dest1_path: /tmp/latest.zip
+file2_path: wp-config-sample.php
+dest2_path: /var/www/html/wordpress/wp-config.php
+db_var: wordpress
+user_var: wordpressuser
+pass_var: password
